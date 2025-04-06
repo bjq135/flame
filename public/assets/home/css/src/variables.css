@@ -1,0 +1,61 @@
+:root {
+  /* 行为相关颜色 */
+  --vt-color-primary: #409eff;
+  --vt-color-success: #4cd964;
+  --vt-color-warning: #f0ad4e;
+  --vt-color-error: #dd524d;
+  
+  /* 文字尺寸 */
+  --vt-font-size-sm: 13px;
+  --vt-font-size-base: 16px;
+  --vt-font-size-lg: 25px;
+  
+  /* 文字基本颜色 */
+  --vt-text-color: #333; /* 基本色 */
+  --vt-text-color-inverse: #fff; /* 反色 */
+  --vt-text-color-grey: #999; /* 辅助灰色，如加载更多的提示信息 */
+  --vt-text-color-placeholder: #8c8c8c;
+  --vt-text-color-disable: #c0c0c0;
+
+  /* 背景颜色 */
+  --vt-bg-color: #f2f5ff; 
+  --vt-bg-color-grey: #f1f1f1;
+  --vt-bg-color-hover: #f1f1f1;
+  --vt-bg-color-mask: rgba(34, 34, 34, 0.95);
+  --vt-bg-color-card: #ffffff;
+
+  /* 边框 */
+  --vt-border-radius: 4px;
+  --vt-border-color: #e3e5eb;
+  --vt-shadow-color: rgba(184, 184, 184, 0.5);
+}
+
+
+/* 夜间模式 */
+body.dark-mode {  
+  /* 文字基本颜色  */
+  --vt-text-color: #b9b9b9;
+  --vt-text-color-inverse: #333;
+  --vt-text-color-grey: #999;
+  --vt-text-color-placeholder: #808080;
+  --vt-text-color-disable: #c0c0c0;
+
+  /* 背景颜色  */
+  --vt-bg-color: #2c2c2c;
+  --vt-bg-color-grey: #5a5a5a;
+  --vt-bg-color-hover: #979797;
+  --vt-bg-color-mask: rgba(34, 34, 34, 0.95);
+  --vt-bg-color-card: #272727;
+  
+  /* 边框 */
+  --vt-border-color: #303030;
+  --vt-shadow-color: #181818;
+}
+
+
+body.dark-mode {}
+body.dark-mode img {  filter: brightness(70%); }
+body.dark-mode .logo { filter: brightness(200%); }
+
+
+

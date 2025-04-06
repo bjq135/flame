@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- article.title%> - <%=site.siteOption.site_title%></title>
+    <meta name="keyword" content="<%- keywords ? keywords : site.siteOption.site_keywords %>">
+    <meta name="description" content="<%- description ? description : site.siteOption.description %>">
+    <link rel="stylesheet" type="text/css" href="<%=siteUrl%>/assets/home/css/style.css %>" />
+</head>
+
+<body class="<%- darkMode ? 'dark-mode' : ''%> ">
+    <%- include('header.html')%>
+
+    <div class="main-container">
+        <div class="left-sider">
+            <video id="my-video" class="video-js vjs-theme-city">
+                <source src="<%= article.url %>" type="video/mp4" />
+                <p class="vjs-no-js">当前浏览器不支持</p>
+            </video>
+
+            <div class="article-widget">
+                <div class="article-title">
+                    <%- article.title%>
+                </div>
+                <div class="article-meta">
+                    <span class="media-author">
+                        <img src="<%- article.user.avatar %>">
+                        <%- article.user.nickname %>
+                    </span>
+                    <span>
+                        <i class="iconfont">&#xe76d;</i>
+                        <%- article.created_at %>
+                    </span>
+
+                    <span class="media-category">
+                        <% currentCategories.forEach((c,i) =>{ %>
+                            <a href="/categories/<%- c.category_id %>" target="_blank"><%- c.title %></a>
+                        <% }) %>
+                    </span>
+
+                    <span>
+                        <i class="iconfont">&#xe752;</i>
+                        <%- article.hit_counter %>
+                    </span>
+                    
+                    <% if(loginUserId && article.is_show == 0){%>
+                        <span class="hidden-action"><i class="iconfont">&#xe7ab;</i>隐藏</span>
+                    <%}%>
+
+                    <% if(loginUserId){ %>
+                        <span class="edit-action">
+                            <a href="/admin/articles/<%-article.id%>/edit">
+                                <i class="iconfont">&#xe77a;</i>编辑
+                            </a>
+                        </span>
+                    <% } %>
+                </div>
+                
+
+                <div class="article-content">
+                    <% if(doc){ %>
+                        <a class="doc-widget" href="/docs/<%- doc.path %>" target="_blank">
+                            <img src="<%- doc.thumbnail %>">
+                            <span>
+                                <%- doc.title %><br>
+                                <b>收录了这篇文章</b>   
+                            </span>
+                            <i class="iconfont">&#xe748;</i>
+                        </a>
+                    <% } %>
+
+                    <%- article.content %>
+
+                    <% if(article.tags){ %>
+                        <span class="article-tags">
+                            <% article.tags.forEach(function(i){ %>
+                                <a href="/tags/<%- i.tag_title %>" target='_blank'>
+                                    <i class="iconfont">&#xe670;</i><span><%- i.tag_title %></span>
+                                </a>
+                            <% }) %>
+                        </span>
+                    <% } %>
+
+<!--                     <div class="article-notice">
+                        <b>声明：</b>本站所有文章和图片，如无特殊说明，均为原创发布。商业转载请联系作者获得授权，非商业转载请注明出处。
+                    </div> -->
+                </div>
+            </div>
+            
+            <div class="article-prev-next-nav">
+                <% if(prev){ %>
+                <div class="article-nav prev">
+                    <div class='title'>上一篇</div>
+                    <div class="arrow-icon"><i class="iconfont">&#xe749;</i></div>
+                    <a href="/articles/<%- prev.id %>"><%- prev.title %></a>
+                </div>
+                <% } %>
+                <% if(next){ %>
+                <div class="article-nav next">
+                    <div class='title'>下一篇</div>
+                    <div class="arrow-icon"><i class="iconfont">&#xe749;</i></div>
+                    <a href="/articles/<%- next.id %>"><%- next.title %></a>
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+
+        <div class="right-sider">
+            <%- include('sider.html')%>
+        </div><!-- .right-sider -->
+
+    </div>
+
+    <%
+    if(!article.thumbnail){
+      article.thumbnail = '/assets/home/images/no-thumbnail.png';
+    }
+    %>
+    <input type="hidden" name="thumbnail" value="<%- article.thumbnail %>">
+
+    <%- include('footer.html')%>
+
+    <link rel="stylesheet" href="<%=siteUrl%>/assets/home/lib/videojs/videojs.css">
+    <script src="/assets/home/lib/videojs/videojs.min.js"></script>
+    <script type="text/javascript">
+    const options = {
+        preload:true,
+        controls: true,
+        fluid:true,
+        poster: document.querySelector('input[name="thumbnail"]').value,
+        controlBar: {
+            skipButtons: { backward: 10, forward: 10 },
+            alwaysShow: true
+        }
+    };
+    const player = videojs('my-video', options);
+    </script>
+</body>
+
+</html>

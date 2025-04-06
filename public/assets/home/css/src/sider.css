@@ -1,0 +1,213 @@
+
+/*
+ * 右边栏目
+ */
+.right-sider {
+  width: 100%;
+  height: 100%;
+  float: right;
+  position: relative;
+}
+
+@media only screen and (min-width: 900px) {
+  .right-sider > div:nth-child(1) {
+    margin-top: 0;
+  }
+}
+.widget-title {
+  font-size: 22px;
+  color: var(--vt-text-color);
+  font-weight: bold;
+  border-radius: 5px;
+  clear: both;
+}
+
+/**
+ * 标签卡
+ */
+.tag-container {
+  margin-top: 10px;
+  overflow: hidden;
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 15px;
+  box-sizing: border-box;
+}
+.tag-container .tag-list {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: -15px;
+}
+.tag-container .tag-list .tag-item {
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 0 15px 15px 0;
+  padding: 3px 5px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  display: block;
+  color: var(--vt-text-color);
+  border: 1px solid var(--vt-border-color);
+}
+.tag-container .tag-list .tag-item:hover {
+  color: var(--vt-color-primary);
+  border: 1px solid var(--vt-color-primary);
+}
+.tag-container .tag-list .tag-item i {
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 900px) {
+  .tag-container {
+    margin-top: 20px;
+  }
+}
+/* 文章列表 文章模块 */
+.article-container {
+  margin-top: 10px;
+  position: sticky;
+  top: 20px;
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 15px;
+}
+
+.article-container .article-list {
+  counter-reset: num1 0;
+}
+
+.article-container .article-list .article-item {
+  height: 38px;
+  line-height: 38px;
+}
+
+.article-list .article-item a {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.article-list .article-item a:hover {
+  color: var(--vt-color-primary);
+}
+
+.article-list .article-item a::before {
+  counter-increment: num1 1;
+  content: counter(num1) ". ";
+}
+
+.article-list .article-item:first-child {
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 900px) {
+  .article-container {
+    margin-top: 20px;
+  }
+}
+/**
+ * 作者卡片
+ */
+.user-card-container {
+  box-sizing: border-box;
+  border-radius: var(--vt-border-radius);
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 20px 15px 25px 15px;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.user-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-header .user-avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.user-header .user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-header .nickname {
+  margin: 15px 0 0 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.user-header .description {
+  margin: 10px 0 0 0;
+  padding: 0 45px;
+  line-height: 20px;
+  font-size: var(--vt-font-size-sm);
+  color: var(--vt-text-color-grey);
+}
+
+.user-meta {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 0 0;
+  color: var(--vt-text-color-grey);
+}
+
+.user-meta .meta-item {
+  min-width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 12px;
+}
+
+.user-meta .meta-item span {
+  margin-top: 3px;
+}
+
+.user-meta .meta-item span:first-child {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-meta-social {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0 0;
+}
+
+.user-meta-social img {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  margin: 2px 8px;
+}
+
+body.dark-mode .user-card {
+  background-color: var(--vt-bg-color-card);
+}
+
+.category-media-widget {
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 15px;
+}

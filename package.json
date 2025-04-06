@@ -1,0 +1,42 @@
+{
+  "name": "flame",
+  "version": "3.2.0",
+  "description": "README",
+  "main": "main",
+  "scripts": {
+    "serve": "pm2 start --env-file .env main.js",
+    "dev": "node --watch --env-file .env --watch-path=./ main.js",
+    "merge": "node --watch ./public/assets/merge.js",
+    "rollup": "rollup ./public/assets/home/js/src/index.js --file ./public/assets/home/js/index.js --format iife --watch",
+    "rollup:admin": "rollup ./public/assets/admin/js/src/index.js --file ./public/assets/admin/js/index.js --format iife --watch",
+    "docs": "vitepress dev docs --port 8100",
+    "docs:build": "vitepress build docs --base /docs/flame/"
+  },
+  "author": "bjq135",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^5.1.0",
+    "express-winston": "^4.2.0",
+    "hot-validator": "^1.1.1",
+    "i18n": "^0.15.1",
+    "jimp": "^0.22.12",
+    "jsonwebtoken": "^9.0.2",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.4",
+    "nodemailer": "^6.9.11",
+    "response-time": "^2.3.2",
+    "winston": "^3.13.0",
+    "xss": "^1.0.14"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  }
+}

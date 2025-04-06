@@ -1,0 +1,143 @@
+
+/* docs index */
+.docs-container {
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.docs-container .menu-widget {
+  display: block;
+}
+
+@media only screen and (min-width: 900px) {
+  .docs-container {
+    width: 1200px;
+    margin: 20px auto 0 auto;
+  }
+}
+/* 文档卡片 */
+.docs-menu-widget {
+  background-color: var(--vt-bg-color-card);
+  border-radius: var(--vt-border-radius);
+  border: 1px solid var(--vt-border-color);
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-bottom: 0px;
+  box-sizing: border-box;
+  margin: 0 0 10px 0;
+}
+
+.menu-widget {
+  padding: 0 0 35px 0;
+}
+
+.menu-widget .doc-index {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0 5px 15px;
+}
+
+.menu-widget .article-list {
+  counter-reset: num1 0;
+  padding: 0px 0 0 15px;
+  margin: 0px;
+}
+
+.menu-widget .article-list .article-item {
+  padding: 3px 0;
+  min-height: 20px;
+  line-height: 20px;
+}
+
+.menu-widget .article-list .article-item:first-child {
+  margin-top: 0;
+}
+
+.menu-widget .article-list .article-item.has-child > a {
+  color: var(--vt-color-primary);
+}
+
+.menu-widget .article-list .article-item.has-child > a::before {
+  content: "\e784";
+  font-family: "iconfont" !important;
+  font-size: 21px;
+  font-weight: 900 !important;
+  position: relative;
+  top: 3px;
+  margin-right: 6px;
+}
+
+.menu-widget .article-item a {
+  font-size: 14px;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.menu-widget .article-item a:hover {
+  color: var(--vt-color-primary);
+}
+
+.menu-widget .article-item a::before {
+  content: "\e8bc";
+  font-family: "iconfont" !important;
+  font-size: 21px;
+  position: relative;
+  top: 3px;
+  font-weight: 300 !important;
+  color: var(--vt-color-primary);
+  margin-right: 6px;
+}
+
+/* 文档卡片 */
+.docs-menu-header {
+  display: flex;
+  padding: 15px 15px 15px 15px;
+}
+
+.docs-menu-header .docs-thumbnail {
+  display: flex;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.docs-menu-header .docs-thumbnail img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--vt-border-radius);
+}
+
+.docs-menu-header .docs-info {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-menu-header .docs-info .title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.docs-menu-header .docs-info .description {
+  margin: 0px;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--vt-text-color-grey);
+}
+
+@media only screen and (min-width: 900px) {
+  .docs-menu-widget {
+    width: 820px;
+    margin: 0 auto;
+  }
+}
+

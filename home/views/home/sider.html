@@ -1,0 +1,54 @@
+<% /* %>
+<div class="user-card-container">
+    <div class="user-header">
+        <a href="javascript:;" class="user-avatar">
+            <img src="/home/images/avatar.jpg">
+        </a>
+        <div class="nickname"><%- %></div>
+        <div class="description"></div>
+    </div>
+    <div class="user-meta">
+        <div class="meta-item">
+            <span><%- %></span> <span>文章</span>
+        </div>
+        <div class="meta-item">
+            <span><%- %></span> <span>教程</span>
+        </div>
+    </div>
+    <div class="user-meta-social">
+        <a href="https://gitee.com/soushenji" target="_blank" rel="nofollow">
+            <img src="<%=siteUrl%>/assets/home/images/icon/gitee.svg" alt="">
+        </a>
+        <a href="https://github.com/soushenji" target="_blank" rel="nofollow">
+            <img src="<%=siteUrl%>/assets/home/images/icon/github.svg" alt="">
+        </a>
+        <a href="https://juejin.cn/user/3529872523397456" target="_blank" rel="nofollow">
+            <img src="<%=siteUrl%>/assets/home/images/icon/juejin.svg" alt="">
+        </a>
+    </div>
+</div>
+<% */ %>
+
+<div class="tag-container">
+    <div class="widget-title">
+        所有标签
+    </div>
+    <div class="tag-list">
+        <% site.tags.forEach(function(t){ %>
+            <a href="/tags/<%- t.tag_title %>" target="_blank" class="tag-item">
+                <i class="iconfont">&#xe670;</i><%- t.tag_title%>
+            </a>
+        <% }); %>
+    </div>
+</div><!-- .tag-container -->
+
+<div class="article-container">
+    <div class="widget-title">
+        随机推荐
+    </div>
+    <div class="article-list">
+        <% site.radomArticles.forEach(function(a){ %>
+        <div class="article-item"><a href="/articles/<%- a.id %>" target="_blank"><%- a.title %></a></div>
+        <% }); %>
+    </div>
+</div>

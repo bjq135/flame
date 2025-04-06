@@ -1,0 +1,6 @@
+.category-media-widget{
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 15px;
+}

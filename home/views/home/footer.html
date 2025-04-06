@@ -1,0 +1,27 @@
+<footer>
+    <div class="footer-container">
+        <div class="copyright">
+            <%- site.siteOption.copyright %>
+
+            <% /* if(process.env.NODE_ENV == "production"){ %>
+                <script>
+                var _hmt = _hmt || [];
+                (function() {
+                  var hm = document.createElement("script");
+                  hm.src = "https://hm.baidu.com/hm.js?f8a257c558b183ebb5df93a14a8d3cec";
+                  var s = document.getElementsByTagName("script")[0]; 
+                  s.parentNode.insertBefore(hm, s);
+                })();
+                </script>
+            <% } */ %>
+        </div>
+    </div>
+</footer>
+
+
+<%- include('bar.html')%>
+
+<link rel="stylesheet" type="text/css" 
+    href="<%=siteUrl%>/assets/home/lib/swiper/swiper-bundle.min.css" />
+<script src="<%=siteUrl%>/assets/home/lib/swiper/swiper-bundle.min.js"></script>
+<script src="<%=siteUrl%>/assets/home/js/index.js"></script>

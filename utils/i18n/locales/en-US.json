@@ -1,0 +1,31 @@
+{
+  "_comment":"common",
+
+  "400": "Bad Request",
+  "401": "Unauthorized",
+  "403": "Forbidden",
+  "404": "Not Found",
+  "405": "Method Not Allowed",
+  "410": "Gone",
+  "415": "Unsupported Media Type",
+  "422": "Unprocessable Entity",
+  "429": "Too Many Requests",
+  "500": "Internal Server Error",
+  "503": "Service Unavailable",
+  "create success": "create success",
+  "create failed": "create failed",
+  "get success": "get success",
+  "get failed": "get failed",
+  "update success": "update success",
+  "update failed": "update failed",
+  "delete success": "delete success",
+  "delete failed": "delete failed",
+  "upload success":"upload success",
+
+  
+  "_comment":"article",
+
+
+  "_comment":"auth",
+
+}

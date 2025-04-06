@@ -1,0 +1,99 @@
+/*
+ * 单页
+ */
+.page-container {
+  font-size: 15px;
+  overflow: hidden;
+  padding: 0 10px;
+  min-height: calc(100vh - 210px - 80px);
+  margin: 10px auto;
+}
+.page-container .page-widget {
+  box-sizing: border-box;
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  padding: 15px;
+}
+.page-container .page-title {
+  font-size: var(--vt-font-size-lg);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--vt-text-color);
+}
+.page-container .edit-button {
+  font-size: 13px;
+  display: inline-block;
+  color: var(--vt-color-primary);
+}
+.page-container .edit-button i {
+  position: relative;
+  font-size: 20px;
+  top: 2px;
+}
+.page-container .page-content {
+  min-height: 430px;
+  font-size: 16px;
+  color: var(--vt-text-color);
+  line-height: 30px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.page-container .page-content a {
+  color: var(--vt-color-primary);
+}
+.page-container .page-content h1,
+.page-container .page-content h2,
+.page-container .page-content h3 {
+  line-height: 60px;
+  font-weight: 900;
+}
+.page-container .page-content img {
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.page-container .page-content p {
+  margin-bottom: 0px;
+}
+.page-container .page-content .btn {
+  display: block;
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px;
+  text-align: center;
+  background-color: var(--vt-color-primary);
+  border-color: var(--vt-color-primary);
+  border-radius: 3px;
+  color: var(--vt-text-color-inverse);
+  margin: 30px auto 30px auto;
+}
+
+@media only screen and (min-width: 900px) {
+  .page-container {
+    width: 1200px;
+    padding: 0 25px;
+    margin: 20px auto 0 auto;
+  }
+  .page-widget {
+    max-width: 820px;
+  }
+}
+/* 404 */
+.page-404-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.page-404-widget .btn {
+  display: block;
+  padding: 8px 12px;
+  margin-top: 30px;
+  background-color: var(--vt-color-primary);
+  font-size: var(--vt-font-size-sm);
+  color: var(--vt-text-color-inverse);
+  border-radius: var(--vt-border-radius);
+}

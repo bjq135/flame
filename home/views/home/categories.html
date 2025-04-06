@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- category.title%> - <%=site.siteOption.site_title%></title>
+    <meta name="keywords" content="<%=site.siteOption.site_keywords%>">
+    <meta name="description" content="<%- category.description ? category.description : site.siteOption.description %>">
+    <link rel="stylesheet" type="text/css" href="<%=siteUrl%>/assets/home/css/style.css %>" />
+</head>
+
+<body class="<%- darkMode ? 'dark-mode' : ''%> ">
+
+    <%- include('header.html')%>
+
+    <div class="main-container">
+        
+
+        <div class="left-sider">
+            
+            <!-- 文章列表 -->
+            <div class="category-media-widget">
+                <ul class="breadcrumbs">
+                    <li>
+                        <i class="iconfont">&#xe671;</i>
+                        <span><a href="/">首页</a></span>
+                        <span>&nbsp;&gt;&nbsp;</span>
+                    </li>
+                    <li>
+                        <span>分类</span>
+                        <span>&nbsp;&gt;&nbsp;</span>
+                    </li>
+                    <li>
+                        <a href="/categories/<%- category.id%>"><% if(category.id){ %><%- category.title%> <% } %></a>
+                    </li>
+                </ul>
+                
+                <div class="media-list">
+                    <% if(articles.length){ %>
+                        <% articles.forEach(function(item){ %>
+                            <div class="media-item">
+                                <div class="media-main">
+                                    <div class="media-title">
+                                        <a href="/articles/<%- item.id %>" target="_blank"><%- item.title%></a>
+                                    </div>
+                                    <div class="media-description">
+                                        <%- String(item.content).slice(0,300); %>
+                                    </div>
+                                    <div class="media-meta">
+                                        <a class="author">
+                                            <img src="<%- item.user.avatar %>">
+                                            <span><%- item.user.nickname %></span>
+                                        </a>
+                                        <span class="date">
+                                            <i class="iconfont">&#xe76d;</i><%- item.created_at %>
+                                        </span>
+                                        <span class="category">
+                                            <% item.categories.forEach((c,i) =>{ %>
+                                                <a href="/categories/<%- c.category_id %>"><%- c.title %></a>
+                                            <% }) %>
+                                        </span>
+                                        <span class="hit-counter">
+                                            <i class="iconfont">&#xe752;</i><%- item.hit_counter %>
+                                        </span>
+                                        <% if(loginUserId && item.is_show == 0){%>
+                                            <span class="hidden-action"><i class="iconfont">&#xe7ab;</i>隐藏</span>
+                                        <%}%>
+                                    </div>
+                                </div>
+                                <% if(item.thumbnail){ %>
+                                    <div class="media-thumbnail">
+                                        <img src="<%- item.thumbnail %>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image">
+                                    </div>
+                                <% }%>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div><!-- .media-widget -->
+            
+
+            <!-- 分页 -->
+            <nav>
+                <%- pagination %>
+            </nav>
+        </div>
+
+        <div class="right-sider">
+            <%- include('sider.html')%>
+        </div><!-- .right-sider -->
+    </div>
+
+    <%- include('footer.html')%>
+
+</body>
+
+</html>
