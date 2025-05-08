@@ -1,5 +1,5 @@
 const i18n = require('i18n');
-const Validator = require('hot-validator');
+const Validator = require('core-validator');
 
 const dbUtil = require("../../utils/db.js");
 const commonUtil = require("../../utils/common.js");
@@ -42,8 +42,8 @@ async function store(req, res){
   var rules = {
     nickname: { type: 'string', min: 2, max: 20 },
     signature: { type: 'string', min: 2, max: 200, required:false },
-    email: { type: 'string', min: 5, max: 50 },
-    mobile: { type: 'string', min: 5, max: 50 },
+    email: { type: 'email'},
+    mobile: { type: 'mobile'},
     password: { type: 'string', min: 8, max: 50},
     gender: { type: 'integer', min: 0, max: 2, required:false},
     birthday: { type: 'string', min: 1, max: 50, required:false},
@@ -138,8 +138,8 @@ async function update(req, res){
   var rules = {
     nickname: { type: 'string', min: 2, max: 20, required:false },
     signature: { type: 'string', min: 2, max: 200, required:false },
-    email: { type: 'string', min: 5, max: 50, required:false },
-    mobile: { type: 'string', min: 5, max: 50, required:false },
+    email: { type: 'email' },
+    mobile: { type: 'mobile'},
     password: { type: 'string', min: 8, max: 50, required:false},
     gender: { type: 'integer', min: 1, max: 2, required:false},
     birthday: { type: 'string', min: 1, max: 50, required:false},

@@ -71,6 +71,8 @@ router.post(`/v1/tags`, auth.check, tagsController.store);
 router.put(`/v1/tags`, auth.check, tagsController.update);
 router.delete(`/v1/tags/:id`, auth.check, tagsController.destroy);
 
+router.get(`/v1/pages`, auth.check, pagesController.index);
+router.get(`/v1/pages/:id`, auth.check, pagesController.show);
 router.post(`/v1/pages`, auth.check, pagesController.store);
 router.put(`/v1/pages/:id`, auth.check, pagesController.update);
 router.delete(`/v1/pages/:id`, auth.check, pagesController.destroy);

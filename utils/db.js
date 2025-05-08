@@ -263,7 +263,7 @@ async function save(table, data, conn) {
   const copy = {};
   for (let key in data) {
     if (data.hasOwnProperty(key)) {
-      if(!data[key]) { console.log('缺少'+key,data[key])}
+      // if(!data[key]) { console.log('缺少'+key, data[key])}
       copy[key] = data[key];
     }
   }

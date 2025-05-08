@@ -25,11 +25,18 @@ class ArticlesService {
 
     sql = `
       SELECT 
-        a.id,a.user_id,a.title,a.description,a.content,a.more, a.url, a.hit_counter, a.created_at, a.is_show,
-        r.*,
-        u.id AS 'user.id', u.nickname AS 'user.nickname',
-        (SELECT file_path FROM tb_asset AS tb_asset WHERE tb_asset.id=u.avatar_id) AS 'user.avatar_id',
-        asset.file_path as thumbnail
+        a.id,
+        ANY_VALUE(a.user_id) AS user_id, 
+        ANY_VALUE(a.title) AS title, 
+        ANY_VALUE(a.description) AS description, 
+        ANY_VALUE(a.content) AS content, 
+        ANY_VALUE(a.hit_counter) AS hit_counter, 
+        ANY_VALUE(a.created_at) AS created_at, 
+        ANY_VALUE(a.is_show) AS is_show,
+        ANY_VALUE(u.id) AS 'user.id', 
+        ANY_VALUE(u.nickname) AS 'user.nickname', 
+        ANY_VALUE(u.avatar_id) AS 'user.avatar_id',
+        ANY_VALUE(asset.file_path) as thumbnail
       FROM tb_article AS a
       LEFT JOIN tb_article_to_category AS r ON r.article_id = a.id
       LEFT JOIN tb_user AS u ON u.id = a.user_id
