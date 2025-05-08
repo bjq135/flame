@@ -5,8 +5,9 @@
   "main": "main",
   "scripts": {
     "serve": "pm2 start --env-file .env main.js",
-    "dev": "node --watch --env-file .env --watch-path=./ main.js",
-    "merge": "node --watch ./public/assets/merge.js",
+    "dev1": "node --watch --env-file .env --watch-path=./ main.js",
+    "dev": "node --env-file .env --watch-path=./ main.js",
+    "css": "node --watch ./public/assets/merge.js",
     "rollup": "rollup ./public/assets/home/js/src/index.js --file ./public/assets/home/js/index.js --format iife --watch",
     "rollup:admin": "rollup ./public/assets/admin/js/src/index.js --file ./public/assets/admin/js/index.js --format iife --watch",
     "docs": "vitepress dev docs --port 8100",

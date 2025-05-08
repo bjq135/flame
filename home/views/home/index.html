@@ -15,6 +15,27 @@
 
     <div class="main-container">
         <div class="left-sider">
+            <% if(pages){ %>
+            <div class="card-widget">
+                <div class="header">
+                    <div class="title">推荐教程</div>
+                    <a href="/docs">更多</a>
+                </div>
+                <div class="body">
+                    <div class="card-list">
+                        <% pages.forEach(function(item){ %>
+                        <a class="card-item" href="<%- item.url%>" target="_blank">
+                            <div class="card-thumbnail">
+                                <img src="<%- item.image%>" alt="<%- item.title%>">
+                            </div>
+                            <div class="card-title"><%- item.title%></div>
+                        </a>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
             <div class="media-widget">            
                 <div class="widget-title">
                     最新文章
@@ -27,7 +48,7 @@
                             <div class="media-item">
                                 <div class="media-main">
                                     <div class="media-title">
-                                        <a href="/articles/<%- item.id %>" target="_blank"><%- item.title%></a>
+                                        <a href="/articles/<%- item.id %>"><%- item.title%></a>
                                     </div>
                                     <div class="media-description">
                                         <%- String(item.content).slice(0,300); %>

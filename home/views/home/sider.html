@@ -16,13 +16,13 @@
         </div>
     </div>
     <div class="user-meta-social">
-        <a href="https://gitee.com/soushenji" target="_blank" rel="nofollow">
+        <a href="https://gitee.com/soushenji" rel="nofollow">
             <img src="<%=siteUrl%>/assets/home/images/icon/gitee.svg" alt="">
         </a>
-        <a href="https://github.com/soushenji" target="_blank" rel="nofollow">
+        <a href="https://github.com/soushenji" rel="nofollow">
             <img src="<%=siteUrl%>/assets/home/images/icon/github.svg" alt="">
         </a>
-        <a href="https://juejin.cn/user/3529872523397456" target="_blank" rel="nofollow">
+        <a href="https://juejin.cn/user/3529872523397456" rel="nofollow">
             <img src="<%=siteUrl%>/assets/home/images/icon/juejin.svg" alt="">
         </a>
     </div>
@@ -35,7 +35,7 @@
     </div>
     <div class="tag-list">
         <% site.tags.forEach(function(t){ %>
-            <a href="/tags/<%- t.tag_title %>" target="_blank" class="tag-item">
+            <a href="/tags/<%- t.tag_title %>" class="tag-item">
                 <i class="iconfont">&#xe670;</i><%- t.tag_title%>
             </a>
         <% }); %>
@@ -48,7 +48,7 @@
     </div>
     <div class="article-list">
         <% site.radomArticles.forEach(function(a){ %>
-        <div class="article-item"><a href="/articles/<%- a.id %>" target="_blank"><%- a.title %></a></div>
+        <div class="article-item"><a href="/articles/<%- a.id %>"><%- a.title %></a></div>
         <% }); %>
     </div>
 </div>

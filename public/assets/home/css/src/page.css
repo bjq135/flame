@@ -97,3 +97,41 @@
   color: var(--vt-text-color-inverse);
   border-radius: var(--vt-border-radius);
 }
+
+
+/**
+ * doc-ul 样式
+ */
+.docs-ul > li > a{
+  font-weight: bold;
+  color: var(--vt-text-color) !important;
+}
+.docs-ul ul {
+  padding: 0 0 0 20px;
+}
+.docs-ul a{ font-size: 14px; }
+.docs-ul a:hover{ color: var(--vt-color-primary) !important; }
+
+.docs-ul ul a {
+  color: var(--vt-text-color) !important;
+}
+
+.docs-ul ul a::before{
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: var(--vt-color-primary);
+  border-radius: 50%;
+  position: relative;
+  top: -2px;
+  margin: 0 7px 0 0;
+}
+
+.docs-ul ul li{
+  line-height: 25px;
+}
+
+
+
+

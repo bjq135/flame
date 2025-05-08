@@ -36,6 +36,7 @@ class ArticlesService {
         ANY_VALUE(u.id) AS 'user.id', 
         ANY_VALUE(u.nickname) AS 'user.nickname', 
         ANY_VALUE(u.avatar_id) AS 'user.avatar_id',
+        (SELECT file_path FROM tb_asset WHERE id=u.avatar_id) AS 'user.avatar',
         ANY_VALUE(asset.file_path) as thumbnail
       FROM tb_article AS a
       LEFT JOIN tb_article_to_category AS r ON r.article_id = a.id
@@ -68,7 +69,7 @@ class ArticlesService {
     var [articles] = await dbUtil.execute(sql, replacements);
     articles.forEach(function (a, index) {
       articles[index] = commonUtil.dataShow(a);
-      articles[index].user.avatar = htmlUtil.getAvatarUrl(articles[index].user.avatar_id);
+      articles[index].user.avatar = htmlUtil.getAvatarUrl(articles[index].user.avatar);
       articles[index].thumbnail = commonUtil.getImageUrl(articles[index].thumbnail);
       // articles[index].more = a.more ? JSON.parse(a.more) : { images: [] };
       articles[index].content = commonUtil.delHtmlTag(a.content);

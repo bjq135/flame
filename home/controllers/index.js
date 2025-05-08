@@ -48,6 +48,10 @@ async function index(req, res) {
   data.articles = articles;
   data.pagination = pager;
 
+  // 单页推荐
+  let option = await dbUtil.findOne('tb_option', {where:{option_name:'pages'}});
+  data.pages = option ? JSON.parse(option.option_value) : '';
+
   res.render("home/index.html", data);
 }
 
