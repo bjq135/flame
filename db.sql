@@ -1,4 +1,21 @@
-CREATE TABLE `tb_article` (
+-- --------------------------------------------------------
+-- 主机:                           127.0.0.1
+-- 服务器版本:                        5.7.44-log - MySQL Community Server (GPL)
+-- 服务器操作系统:                      Win64
+-- HeidiSQL 版本:                  12.10.0.7000
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+-- 导出  表 flame_new.tb_article 结构
+CREATE TABLE IF NOT EXISTS `tb_article` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `title` varchar(255) NOT NULL COMMENT '标题',
@@ -17,9 +34,12 @@ CREATE TABLE `tb_article` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `thumbnail_id` (`thumbnail_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1231 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_article_meta` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_article_meta 结构
+CREATE TABLE IF NOT EXISTS `tb_article_meta` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `article_id` bigint(20) NOT NULL,
   `meta_key` varchar(100) NOT NULL,
@@ -27,22 +47,31 @@ CREATE TABLE `tb_article_meta` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_article_to_category` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_article_to_category 结构
+CREATE TABLE IF NOT EXISTS `tb_article_to_category` (
   `article_id` bigint(20) NOT NULL,
   `category_id` bigint(20) NOT NULL,
   KEY `tb_portal_article_to_category_article_id_category_id` (`article_id`,`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_article_to_tag` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_article_to_tag 结构
+CREATE TABLE IF NOT EXISTS `tb_article_to_tag` (
   `article_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
   KEY `article_id` (`article_id`),
   KEY `tag_id` (`tag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `tb_asset` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_asset 结构
+CREATE TABLE IF NOT EXISTS `tb_asset` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `parent_id` bigint(20) NOT NULL COMMENT '父id，比如相关文章的图片，非必填',
@@ -57,9 +86,12 @@ CREATE TABLE `tb_asset` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=467 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_category` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_category 结构
+CREATE TABLE IF NOT EXISTS `tb_category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) NOT NULL,
   `user_id` bigint(20) DEFAULT NULL COMMENT '创建者ID',
@@ -70,9 +102,12 @@ CREATE TABLE `tb_category` (
   `created_at` datetime DEFAULT NULL,
   `is_show` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_category_meta` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_category_meta 结构
+CREATE TABLE IF NOT EXISTS `tb_category_meta` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `category_id` bigint(20) NOT NULL,
   `meta_key` varchar(100) NOT NULL,
@@ -80,9 +115,12 @@ CREATE TABLE `tb_category_meta` (
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_code` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_code 结构
+CREATE TABLE IF NOT EXISTS `tb_code` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `account` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -92,9 +130,12 @@ CREATE TABLE `tb_code` (
   `created_at` datetime DEFAULT NULL,
   `expired_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `tb_comment` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_comment 结构
+CREATE TABLE IF NOT EXISTS `tb_comment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `from_user_id` bigint(20) NOT NULL COMMENT '评论者uuid',
   `to_user_id` bigint(20) DEFAULT NULL COMMENT '被评论者的uuid',
@@ -111,25 +152,10 @@ CREATE TABLE `tb_comment` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_doc` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `thumbnail` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `path` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- 数据导出被取消选择。
 
-CREATE TABLE `tb_doc_item` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` bigint(20) NOT NULL,
-  `parent_id` bigint(20) NOT NULL,
-  `doc_id` int(11) NOT NULL DEFAULT '0',
-  `list_order` int(11) NOT NULL DEFAULT '99',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `tb_log` (
+-- 导出  表 flame_new.tb_log 结构
+CREATE TABLE IF NOT EXISTS `tb_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户 ID',
   `ip` varchar(128) DEFAULT NULL COMMENT 'IP 地址',
@@ -137,9 +163,12 @@ CREATE TABLE `tb_log` (
   `count` bigint(20) NOT NULL COMMENT '当天的次数',
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_menu` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_menu 结构
+CREATE TABLE IF NOT EXISTS `tb_menu` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -149,17 +178,23 @@ CREATE TABLE `tb_menu` (
   `list_order` int(11) NOT NULL DEFAULT '99',
   `menu_group` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `tb_option` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_option 结构
+CREATE TABLE IF NOT EXISTS `tb_option` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `option_name` varchar(80) DEFAULT NULL,
   `option_value` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_page` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_page 结构
+CREATE TABLE IF NOT EXISTS `tb_page` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -177,9 +212,46 @@ CREATE TABLE `tb_page` (
   `list_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `route_url` (`route_url`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_star` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_permission 结构
+CREATE TABLE IF NOT EXISTS `tb_permission` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `title` varchar(30) NOT NULL DEFAULT '',
+  `flag` varchar(30) NOT NULL DEFAULT '',
+  `list_order` int(11) NOT NULL DEFAULT '99',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `flag` (`flag`),
+  KEY `title` (`title`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COMMENT='RBAC 权限表';
+
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_role 结构
+CREATE TABLE IF NOT EXISTS `tb_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(200) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COMMENT='RBAC 角色表';
+
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_role_to_permission 结构
+CREATE TABLE IF NOT EXISTS `tb_role_to_permission` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='RBAC 权限和角色表关系表';
+
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_star 结构
+CREATE TABLE IF NOT EXISTS `tb_star` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `object_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
@@ -187,15 +259,21 @@ CREATE TABLE `tb_star` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_tag` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_tag 结构
+CREATE TABLE IF NOT EXISTS `tb_tag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tag_title` varchar(50) NOT NULL COMMENT '标签名',
   `list_order` bigint(11) DEFAULT '99' COMMENT '排序',
   PRIMARY KEY (`id`,`tag_title`),
   UNIQUE KEY `tag_title` (`tag_title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `tb_user` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_user 结构
+CREATE TABLE IF NOT EXISTS `tb_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nickname` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -203,25 +281,22 @@ CREATE TABLE `tb_user` (
   `mobile` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `gender` int(1) NOT NULL DEFAULT '0' COMMENT '0 保密、1 男、2 女',
-  `birthday` bigint(11) DEFAULT NULL,
-  `score` bigint(11) DEFAULT NULL,
-  `coin` bigint(11) DEFAULT NULL,
-  `balance` decimal(10,2) DEFAULT NULL,
-  `avatar` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  `avatar_id` bigint(11) DEFAULT NULL,
   `signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_login_ip` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `more` text COLLATE utf8_unicode_ci,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` int(1) NOT NULL DEFAULT '1' COMMENT '用户类型 0:超级管理员 1:普通用户',
   `created_at` datetime DEFAULT NULL,
   `logined_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '用户状态 1:正常、0:禁用',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户表';
 
-CREATE TABLE `tb_user_meta` (
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_user_meta 结构
+CREATE TABLE IF NOT EXISTS `tb_user_meta` (
   `user_meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL,
   `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -229,7 +304,26 @@ CREATE TABLE `tb_user_meta` (
   PRIMARY KEY (`user_meta_id`),
   KEY `user_id` (`user_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
+
+-- 数据导出被取消选择。
+
+-- 导出  表 flame_new.tb_user_to_role 结构
+CREATE TABLE IF NOT EXISTS `tb_user_to_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COMMENT='用户和角色关系表';
+
+-- 数据导出被取消选择。
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
 
 
 
