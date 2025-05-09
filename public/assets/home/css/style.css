@@ -494,7 +494,7 @@ th {
     margin: 20px auto 0 auto;
   }
   .page-widget {
-    max-width: 820px;
+    /*    max-width: 820px;*/
   }
 }
 /* 404 */
